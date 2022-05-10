@@ -2,26 +2,37 @@ import React from "react";
 
 import CodeEditor from "./code-editor";
 import Preview from "./preview";
+import Resizable from "./resizable";
+
 import bundle from "../bundler";
 
 const CodeCell = () => {
   const [input, setInput] = React.useState("");
   const [code, setCode] = React.useState("");
 
-  const onSubmit = async () => {
-    const bundledCode = await bundle(input);
-    setCode(bundledCode);
-  };
+  React.useEffect(() => {
+    const timer = setTimeout(async () => {
+      const bundledCode = await bundle(input);
+      setCode(bundledCode);
+    }, 1000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [input]);
 
   return (
-    <div>
-      <CodeEditor initialValue={input} onChange={(value) => setInput(value)} />
-      <textarea value={input} onChange={(e) => setInput(e.target.value)} />
-      <div>
-        <button onClick={onSubmit}>Submit</button>
+    <Resizable direction="vertical">
+      <div style={{ height: "100%", display: "flex", flexDirection: "row" }}>
+        <Resizable direction="horizontal">
+          <CodeEditor
+            initialValue={input}
+            onChange={(value) => setInput(value)}
+          />
+        </Resizable>
+        <Preview code={code} />
       </div>
-      <Preview code={code} />
-    </div>
+    </Resizable>
   );
 };
 

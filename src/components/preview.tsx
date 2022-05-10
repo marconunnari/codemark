@@ -1,12 +1,20 @@
 import React from "react";
 
+import "./preview.css";
+
 interface PreviewProps {
   code: string;
 }
 
 const iframeHtml = `
   <html>
-    <head></head>
+    <head>
+      <style>
+        html {
+          background-color: white;
+        }
+      </style>
+    </head>
     <body>
       <div id="root"></div>
       <script>
@@ -34,16 +42,18 @@ const Preview: React.FC<PreviewProps> = ({ code }) => {
 
     setTimeout(() => {
       iframe.current.contentWindow.postMessage(code, "*");
-    }, 100);
+    }, 50);
   }, [code]);
 
   return (
-    <iframe
-      title="preview"
-      ref={iframe}
-      sandbox="allow-scripts"
-      srcDoc={iframeHtml}
-    />
+    <div className="preview-wrapper">
+      <iframe
+        title="Preview iframe"
+        ref={iframe}
+        sandbox="allow-scripts"
+        srcDoc={iframeHtml}
+      />
+    </div>
   );
 };
 
