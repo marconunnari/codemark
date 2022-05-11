@@ -9,11 +9,13 @@ import bundle from "../bundler";
 const CodeCell = () => {
   const [input, setInput] = React.useState("");
   const [code, setCode] = React.useState("");
+  const [error, setError] = React.useState("");
 
   React.useEffect(() => {
     const timer = setTimeout(async () => {
-      const bundledCode = await bundle(input);
-      setCode(bundledCode);
+      const { code, error } = await bundle(input);
+      setCode(code);
+      setError(error)
     }, 1000);
 
     return () => {
@@ -30,7 +32,7 @@ const CodeCell = () => {
             onChange={(value) => setInput(value)}
           />
         </Resizable>
-        <Preview code={code} />
+        <Preview code={code} error={error} />
       </div>
     </Resizable>
   );
