@@ -1,5 +1,5 @@
 import { ActionType } from "../action-types";
-import { CellType } from "../cell";
+import { Cell, CellType } from "../cell";
 
 export type Direction = "up" | "down";
 
@@ -50,10 +50,16 @@ export interface BundleCompleteAction {
   };
 }
 
+export interface LoadCellsAction {
+  type: ActionType.LOAD_CELLS;
+  payload: Cell[];
+}
+
 export type Action =
   | MoveCellAction
   | DeleteCellAction
   | InsertCellAfterAction
   | UpdateCellAction
   | BundleStartAction
-  | BundleCompleteAction;
+  | BundleCompleteAction
+  | LoadCellsAction;

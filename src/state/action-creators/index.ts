@@ -9,8 +9,10 @@ import {
   Direction,
   Action,
 } from "../actions";
-import { CellType } from "../cell";
+import { Cell, CellType } from "../cell";
 import bundle from "../../bundler";
+import { RootState } from "../reducers";
+import { placeholderCells, SAVED_CELLS_LOCAL_STORAGE_KEY } from "../constants";
 
 export const updateCell = (id: string, content: string): UpdateCellAction => {
   return {
@@ -68,5 +70,32 @@ export const createBundle = (cellId: string, input: string) => {
         bundle: result,
       },
     });
+  };
+};
+
+export const loadCells = () => {
+  return (dispatch: Dispatch<Action>) => {
+    let cells: Cell[] = [];
+    const savedCells = localStorage.getItem(SAVED_CELLS_LOCAL_STORAGE_KEY);
+    if (savedCells && savedCells !== "[]") {
+      cells = JSON.parse(savedCells);
+    } else {
+      cells = placeholderCells;
+    }
+
+    dispatch({
+      type: ActionType.LOAD_CELLS,
+      payload: cells,
+    });
+  };
+};
+
+export const saveCells = () => {
+  return (_: Dispatch<Action>, getState: () => RootState) => {
+    const {
+      cells: { data, order },
+    } = getState();
+    const cells = order.map((id) => data[id]);
+    localStorage.setItem(SAVED_CELLS_LOCAL_STORAGE_KEY, JSON.stringify(cells));
   };
 };

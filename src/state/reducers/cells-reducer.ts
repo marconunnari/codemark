@@ -5,8 +5,6 @@ import { Action } from "../actions";
 import { Cell } from "../cell";
 
 export interface CellsState {
-  loading: boolean;
-  error: string | null;
   order: string[];
   data: {
     [key: string]: Cell;
@@ -14,8 +12,6 @@ export interface CellsState {
 }
 
 const initialState: CellsState = {
-  loading: false,
-  error: null,
   order: [],
   data: {},
 };
@@ -65,6 +61,16 @@ const reducer = produce((state: CellsState = initialState, action: Action) => {
       }
 
       return state;
+
+    case ActionType.LOAD_CELLS:
+      state.order = action.payload.map((cell) => cell.id);
+      state.data = action.payload.reduce((acc, cell) => {
+        acc[cell.id] = cell;
+        return acc;
+      }, {} as CellsState["data"]);
+
+      return state;
+
     default:
       return state;
   }
