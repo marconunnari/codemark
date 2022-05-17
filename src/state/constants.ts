@@ -7,7 +7,7 @@ export const placeholderCells: Cell[] = [
     id: "1652819705295-gr8",
     type: "text",
     content:
-      "# JSBook\n\nThis is an interactive coding environment. You can write Javascript, see it executed and write comprehensive documentation using Markdown.\n\n- Click any text cell (including this one) to edit it.\n- The code in each code editor is all joined together into one file. If you define a variable in the first cell you can refer to it in any following cell.\n- You can show any React component, string, number or anything else by calling the `show` function. This is a function built in this environment.\n- Re-order or delete cells using the buttons on the top right.\n- Add new cells by hovering on the divider between each cell.\n\nAll of you changes are saved automatically in your browser local storage.",
+      "# Codemark\n\nThis is an interactive coding environment. You can write Javascript, see it executed and write comprehensive documentation using Markdown.\n\n- Click any text cell (including this one) to edit it.\n- The code in each code editor is all joined together into one file. If you define a variable in the first cell you can refer to it in any following cell.\n- You can show any React component, string, number or anything else by calling the `show` function. This is a function built in this environment.\n- Re-order or delete cells using the buttons on the top right.\n- Add new cells by hovering on the divider between each cell.\n\nAll of you changes are saved automatically in your browser local storage.",
   },
   {
     id: "1652819783211-np2",
