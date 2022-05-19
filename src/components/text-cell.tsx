@@ -1,16 +1,16 @@
-import MDEditor from "@uiw/react-md-editor";
 import React from "react";
+import MDEditor from "@uiw/react-md-editor";
 
 import { Cell } from "../state";
 import { useActions } from "../hooks/useActions";
 
-import "./text-editor.css";
+import "./text-cell.css";
 
-interface TextEditorProps {
+interface TextCellProps {
   cell: Cell;
 }
 
-const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
+const TextCell: React.FC<TextCellProps> = ({ cell }) => {
   const ref = React.useRef<HTMLDivElement>(null);
   const [editing, setEditing] = React.useState(false);
   const { updateCell } = useActions();
@@ -30,7 +30,7 @@ const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
 
   if (editing) {
     return (
-      <div className="text-editor" ref={ref}>
+      <div className="text-cell" ref={ref}>
         <MDEditor
           value={cell.content}
           onChange={(v) => updateCell(cell.id, v || "")}
@@ -40,7 +40,7 @@ const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
   }
 
   return (
-    <div className="text-editor card" onClick={() => setEditing(true)}>
+    <div className="text-cell card" onClick={() => setEditing(true)}>
       <div className="card-content">
         <MDEditor.Markdown source={cell.content || 'Click to edit...'} />
       </div>
@@ -48,4 +48,4 @@ const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
   );
 };
 
-export default TextEditor;
+export default TextCell;

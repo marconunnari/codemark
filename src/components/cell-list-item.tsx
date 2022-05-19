@@ -1,7 +1,7 @@
 import { Cell } from "../state";
 import CellActionBar from "./cell-action-bar";
-import TextEditor from "./text-editor";
 import CodeCell from "./code-cell";
+import TextCell from "./text-cell";
 
 import "./cell-list-item.css";
 
@@ -18,7 +18,7 @@ const CellListItem: React.FC<CellListItemProps> = ({ cell }) => {
       {cell.type === "code" ? (
         <CodeCell cell={cell} />
       ) : (
-        <TextEditor cell={cell} />
+        <TextCell cell={cell} />
       )}
     </div>
   );
