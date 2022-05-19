@@ -1,15 +1,15 @@
-.preview-wrapper {
+.code-preview-wrapper {
   position: relative;
   height: 100%;
   flex-grow: 1;
 }
 
-.preview-wrapper iframe {
+.code-preview-wrapper iframe {
   height: 100%;
   width: 100%;
 }
 
-.react-draggable-transparent-selection .preview-wrapper::after {
+.react-draggable-transparent-selection .code-preview-wrapper::after {
   content: "";
   position: absolute;
   top: 0;
@@ -19,7 +19,7 @@
   opacity: 0;
 }
 
-.preview-error {
+.code-preview-error {
   position: absolute;
   top: 10px;
   left: 10px;

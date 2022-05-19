@@ -1,7 +1,7 @@
 import React from "react";
 
 import CodeEditor from "./code-editor";
-import Preview from "./preview";
+import CodePreview from "./code-preview";
 import Resizable from "./resizable";
 import { Cell } from "../state";
 import { useActions } from "../hooks/useActions";
@@ -59,7 +59,7 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
               </progress>
             </div>
           ) : (
-            <Preview code={bundle.code} error={bundle.error} />
+            <CodePreview code={bundle.code} error={bundle.error} />
           )}
         </div>
       </div>

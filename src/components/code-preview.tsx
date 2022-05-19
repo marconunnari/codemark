@@ -1,8 +1,8 @@
 import React from "react";
 
-import "./preview.css";
+import "./code-preview.css";
 
-interface PreviewProps {
+interface CodePreviewProps {
   code: string;
   error: string;
 }
@@ -42,7 +42,7 @@ const iframeHtml = `
   </html>
 `;
 
-const Preview: React.FC<PreviewProps> = ({ code, error }) => {
+const CodePreview: React.FC<CodePreviewProps> = ({ code, error }) => {
   const iframe = React.useRef<any>();
 
   React.useEffect(() => {
@@ -56,16 +56,16 @@ const Preview: React.FC<PreviewProps> = ({ code, error }) => {
   }, [code]);
 
   return (
-    <div className="preview-wrapper">
+    <div className="code-preview-wrapper">
       <iframe
         title="Preview iframe"
         ref={iframe}
         sandbox="allow-scripts"
         srcDoc={iframeHtml}
       />
-      {error && <div className="preview-error">{error}</div>}
+      {error && <div className="code-preview-error">{error}</div>}
     </div>
   );
 };
 
-export default Preview;
+export default CodePreview;
