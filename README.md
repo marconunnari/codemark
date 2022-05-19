@@ -2,13 +2,14 @@
 
 A web-based coding environment where you can write Javascript, see it executed and write comprehensive documentation using Markdown.
 
-You can try it live with the [Demo](https://codemark.netlify.app)
+You can try it live at [codemark.netlify.app](https://codemark.netlify.app)
 
 ![Screenshot](./Screenshot.png)
 
 ## Features
 
 - [x] Add multiple code or text cells
+- [x] Re-order and delete cells.
 - [x] Write and preview Markdown with an easy to use editor
 - [x] Write, execute and see the output of modern Javascript inside the browser
 - [x] Import any npm package that works in the browser
