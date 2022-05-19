@@ -1,16 +1,16 @@
 import { useActions } from "../hooks/useActions";
 
-import "./action-bar.css"
+import "./cell-action-bar.css"
 
-interface ActionBarProps {
+interface CellActionBarProps {
   id: string;
 }
 
-const ActionBar: React.FC<ActionBarProps> = ({ id }) => {
+const CellActionBar: React.FC<CellActionBarProps> = ({ id }) => {
   const { moveCell, deleteCell } = useActions();
 
   return (
-    <div className="action-bar">
+    <div className="cell-action-bar">
       <button
         className="button is-primary is-small"
         onClick={() => moveCell(id, "up")}
@@ -39,4 +39,4 @@ const ActionBar: React.FC<ActionBarProps> = ({ id }) => {
   );
 };
 
-export default ActionBar;
+export default CellActionBar;

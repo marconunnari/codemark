@@ -1,4 +1,4 @@
-.action-bar {
+.cell-action-bar {
   position: absolute;
   top: 0;
   right: 0;
@@ -7,6 +7,6 @@
   transition: opacity .3s;
 }
 
-.action-bar:hover {
+.cell-action-bar:hover {
   opacity: 1;
 }
