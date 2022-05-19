@@ -1,19 +1,19 @@
-.add-cell {
+.cell-divider {
   position: relative;
   opacity: 0;
   transition: opacity 0.3s ease-in 0.1s;
   margin: 8px 0;
 }
 
-.add-cell.force-visible {
+.cell-divider.force-visible {
   opacity: 1;
 }
 
-.add-cell:hover {
+.cell-divider:hover {
   opacity: 1;
 }
 
-.add-cell .divider {
+.cell-divider .divider {
   position: absolute;
   top: 50%;
   bottom: 50%;
@@ -24,11 +24,11 @@
   width: 95%;
 }
 
-.add-cell .add-buttons {
+.cell-divider .add-buttons {
   display: flex;
   justify-content: center;
 }
 
-.add-cell .add-buttons button {
+.cell-divider .add-buttons button {
   margin: 0 20px;
 }

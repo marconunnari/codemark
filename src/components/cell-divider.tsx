@@ -1,17 +1,17 @@
 import { useActions } from "../hooks/useActions";
 
-import "./add-cell.css";
+import "./cell-divider.css";
 
-interface AddCellProps {
+interface CellDividerProps {
   previousCellId: string | null;
   forceVisible?: boolean
 }
 
-const AddCell: React.FC<AddCellProps> = ({ previousCellId, forceVisible }) => {
+const CellDivider: React.FC<CellDividerProps> = ({ previousCellId, forceVisible }) => {
   const { insertCellAfter } = useActions();
 
   return (
-    <div className={`add-cell ${forceVisible && 'force-visible'}`}>
+    <div className={`cell-divider ${forceVisible && 'force-visible'}`}>
       <div className="add-buttons">
         <button
           className="button is-rounded is-primary is-small"
@@ -37,4 +37,4 @@ const AddCell: React.FC<AddCellProps> = ({ previousCellId, forceVisible }) => {
   );
 };
 
-export default AddCell;
+export default CellDivider;

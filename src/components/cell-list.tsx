@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { useActions } from "../hooks/useActions";
 import { useTypedSelector } from "../hooks/useTypedSelector";
-import AddCell from "./add-cell";
+import CellDivider from "./cell-divider";
 import CellListItem from "./cell-list-item";
 
 import "./cell-list.css";
@@ -20,13 +20,13 @@ const CellList: React.FC = () => {
   const renderedCells = cells.map((cell) => (
     <Fragment key={cell.id}>
       <CellListItem cell={cell} />
-      <AddCell previousCellId={cell.id} />
+      <CellDivider previousCellId={cell.id} />
     </Fragment>
   ));
 
   return (
     <div className="cell-list">
-      <AddCell previousCellId={null} forceVisible={cells.length === 0} />
+      <CellDivider previousCellId={null} forceVisible={cells.length === 0} />
       {renderedCells}
     </div>
   );
