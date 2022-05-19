@@ -31,7 +31,6 @@ The Javascript code is bundled with esbuild inside the browser thanks to WebAsse
 - [UNPKG](https://unpkg.com/)
 - [Monaco editor](https://microsoft.github.io/monaco-editor/)
 - [Prettier](https://prettier.io/)
-- [React resizable](https://github.com/bokuweb/re-resizable)
 
 ## Local installation
 
